@@ -32,6 +32,18 @@ function methodVideoPath(task, methodDir) {
   return `assets/videos/${task.results_version}/${methodDir}/${task.video_stem}__${task.target_slug}.mp4`;
 }
 
+// "cat_2" -> "Cat", "acoustic_guitar_4" -> "Acoustic Guitar", "gunshot_1" -> "Gunshot".
+// Allow tasks.json to override via an explicit `display_name` field.
+function displayName(task) {
+  if (task.display_name) return task.display_name;
+  return task.video_stem
+    .replace(/_\d+$/, "")
+    .split("_")
+    .filter(Boolean)
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}
+
 function renderFigure(site) {
   const root = document.getElementById("figure-section");
   if (!site.main_figure) return;
@@ -87,7 +99,7 @@ function renderTask(task, methods) {
   const card = el("div", { class: "task-card" });
 
   const header = el("div", { class: "task-header" });
-  header.appendChild(el("div", { class: "video-stem", text: task.video_stem }));
+  header.appendChild(el("div", { class: "video-stem", text: displayName(task) }));
   const prompts = el("div", { class: "prompt-row" });
   prompts.innerHTML =
     `<span class="src-prompt">${task.source_prompt}</span>` +
