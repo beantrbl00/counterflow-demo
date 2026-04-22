@@ -1,0 +1,64 @@
+{
+  "site": {
+    "title": "CounterFlow: A Dual-Phase Inference-Time Sampling for Counterfactual Video Foley Generation",
+    "short_title": "CounterFlow",
+    "authors": "Anonymous Authors",
+    "venue": "CVPR 2026 Submission",
+    "abstract": "We investigate counterfactual Video Foley generation, which requires generating audio temporally anchored to a silent video while adopting a sound source identity that contradicts the visual evidence. Existing Video&Text-to-Audio (VT2A) models struggle with this, often remaining anchored to the visually implied sound source when video and text contents disagree. We present CounterFlow, an inference-time dual-phase sampling scheme for pretrained flow-matching VT2A models. Phase 1 builds a video-derived temporal structure while suppressing the visually implied source; Phase 2 drops video conditioning to focus entirely on shaping audio timbre toward the target prompt. CounterFlow substantially improves counterfactual Video Foley generation compared to naive negative prompting and state-of-the-art baselines. To evaluate replacement quality, we propose a metric leveraging a text-audio co-embedding space to measure both target-prompt evidence and residual visually implied source leakage.",
+    "main_figure": "assets/figure/main_figure.png",
+    "main_figure_caption": "CounterFlow steers the sampling trajectory of a pretrained VT2A backbone at inference time without additional training. Phase 1 establishes a video-aligned temporal structure through decomposed guidance, while Phase 2 removes video conditioning and employs negative text prompting to refine the counterfactual sound identity within the established structure."
+  },
+  "methods": {
+    "ours": {
+      "label": "Ours (CounterFlow)",
+      "results_dir": "promptswitch_ntrans17"
+    },
+    "baselines": [
+      { "label": "CAFA", "results_dir": "cafa" },
+      { "label": "ReWaS", "results_dir": "rewas" },
+      { "label": "MMAudio + neg. src.", "results_dir": "mmaudio_neg" }
+    ]
+  },
+  "tasks": [
+    {
+      "section": "Foley",
+      "video_stem": "cat_2",
+      "source_prompt": "cat meowing",
+      "target_prompt": "horse neighing",
+      "target_slug": "horse_neighing",
+      "results_version": "local7_v2"
+    },
+    {
+      "section": "Foley",
+      "video_stem": "dog_3",
+      "source_prompt": "dog barking",
+      "target_prompt": "bear growling",
+      "target_slug": "bear_growling",
+      "results_version": "local7_v2"
+    },
+    {
+      "section": "Foley",
+      "video_stem": "gunshot_1",
+      "source_prompt": "gunshot sound",
+      "target_prompt": "glass shattering",
+      "target_slug": "glass_shattering",
+      "results_version": "local7_v2"
+    },
+    {
+      "section": "Music",
+      "video_stem": "acoustic_guitar_2",
+      "source_prompt": "acoustic guitar playing",
+      "target_prompt": "flute playing",
+      "target_slug": "flute_playing",
+      "results_version": "local7_v3"
+    },
+    {
+      "section": "Music",
+      "video_stem": "drum_1",
+      "source_prompt": "drum beating",
+      "target_prompt": "piano playing",
+      "target_slug": "piano_playing",
+      "results_version": "local7_v3"
+    }
+  ]
+}

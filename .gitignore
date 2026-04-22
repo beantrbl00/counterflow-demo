@@ -1,0 +1,10 @@
+# local preview server logs
+*.log
+
+# macOS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.idea/
+.vscode/
