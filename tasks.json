@@ -40,9 +40,17 @@
       "section": "Foley",
       "video_stem": "gunshot_1",
       "source_prompt": "gunshot sound",
+      "target_prompt": "hammer striking metal",
+      "target_slug": "hammer_striking_metal",
+      "results_version": "local7_v2"
+    },
+    {
+      "section": "Foley",
+      "video_stem": "hammer_5",
+      "source_prompt": "hammer hitting",
       "target_prompt": "glass shattering",
       "target_slug": "glass_shattering",
-      "results_version": "local7_v2"
+      "results_version": "local7_v4"
     },
     {
       "section": "Music",
