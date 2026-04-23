@@ -38,11 +38,11 @@
     },
     {
       "section": "Foley",
-      "video_stem": "gunshot_1",
+      "video_stem": "gunshot_2",
       "source_prompt": "gunshot sound",
-      "target_prompt": "hammer striking metal",
-      "target_slug": "hammer_striking_metal",
-      "results_version": "local7_v2"
+      "target_prompt": "cannon firing",
+      "target_slug": "cannon_firing",
+      "results_version": "local7_v5"
     },
     {
       "section": "Foley",
